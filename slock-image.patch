@@ -9,7 +9,29 @@
  
  # flags
  CPPFLAGS = -DVERSION=\"${VERSION}\" -D_DEFAULT_SOURCE -DHAVE_SHADOW_H
- 
+
+--- slock.1
++++ slock.1
+@@ -5,7 +5,7 @@
+ .Nd simple X screen locker
+ .Sh SYNOPSIS
+ .Nm
+-.Op Fl v
++.Op Fl v i
+ .Op Ar cmd Op Ar arg ...
+ .Sh DESCRIPTION
+ .Nm
+@@ -16,6 +16,8 @@
+ .Bl -tag -width Ds
+ .It Fl v
+ Print version information to stdout and exit.
++.It Fl i
++Load image as background.
+ .El
+ .Sh SECURITY CONSIDERATIONS
+ To make sure a locked screen can not be bypassed by switching VTs
+
+
 --- slock.c
 +++ slock.c
 @@ -18,8 +18,9 @@
